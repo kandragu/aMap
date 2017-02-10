@@ -1,0 +1,26 @@
+<div>
+    <h2 class="page-title">Admin Home</h2>
+
+    <div class="jumbotron">
+        <div>
+            <p>
+                To start using Elite Schedule, configure your <a href="#/leagues">League</a> first. Once you select your league, you will configure
+                <span class="bold-text">Teams</span> and <span class="bold-text">Games</span> for your league.
+            </p>
+            <p>
+                <a href="#/locations">Locations</a> are shared across leagues.
+            </p>
+        </div>
+    </div>
+
+    <h1>GoogleMap-Based App</h1>
+      <hr />
+
+      <div id="map-container" ng-controller="HomeCtrl as vm">
+        <ng-map  disableDefaultUI = "true" zoom="2" center="[45.518970, -122.672899]" disableDoubleClickZoom="true" fullscreenControl="false">
+            <map-data on-click="vm.onStateClick()"
+             load-geo-json="https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json">
+           </map-data>
+        </ng-map>
+      </div>
+</div>

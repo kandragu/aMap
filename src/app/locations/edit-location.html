@@ -1,0 +1,35 @@
+<div>
+    <h2>{{vm.title}}</h2>
+
+    <div class="col-sm-6">
+        <form role="form" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+                    <a class="btn btn-default" ui-sref="locations">Cancel</a>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" ng-model="vm.location.name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" ng-model="vm.location.address"/>
+                </div>
+                <button class="col-sm-1 btn btn-primary" ng-click="vm.refreshMap()">Map</button>
+            </div>
+        </form>
+
+        <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom">
+            <ui-gmap-marker idKey="vm.marker.id" coords="vm.marker.coords" options="vm.marker.options" 
+             click="vm.markerClicked()"></ui-gmap-marker>
+
+        </ui-gmap-google-map>
+
+    </div>
+</div>
