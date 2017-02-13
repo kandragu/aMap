@@ -20,10 +20,10 @@
         //--
           var map = evtMap;
           map.fullscreenControl=false;
+          map.disableDoubleClickZoom = true;
           vm.map = map;
           console.log('loading scripts/starbucks.json');
-          $http.get('app/home/starbucks.js').then(function(resp) {
-            /*debugger;*/
+          /*$http.get('app/home/starbucks.js').then(function(resp) {
             console.log('stores', stores);
             var stores = resp.data;
             for (var i=0; i<stores.length; i++) {
@@ -35,7 +35,7 @@
             }
             console.log('finished loading scripts/starbucks.json', 'vm.stores', vm.stores.length);
             vm.markerClusterer = new MarkerClusterer(map, vm.stores, {});
-          }, function(err) { console.log('err', err)});
+          }, function(err) { console.log('err', err)});*/
 
         //--
 
@@ -50,9 +50,11 @@
         }
 
        function onStateClick(event) {
+        // debugger;
             vm.geoType =  event.feature.getGeometry().getType();
             vm.geoArray = event.feature.getGeometry().getArray();
-            console.log('geoArray', event.feature.getGeometry().getArray());
+            // console.log('geoArray', event.feature.getGeometry().getArray());
+            console.log("country: %s and obj %o" ,event.feature.f.name,event.feature);
           }
 
         function navigate(){
